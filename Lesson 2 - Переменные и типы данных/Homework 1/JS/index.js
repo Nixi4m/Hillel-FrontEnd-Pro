@@ -1,0 +1,9 @@
+console.log(typeof 66);
+console.log(typeof "pablo");
+console.log(typeof pablo);
+console.log(typeof 33n);
+console.log(typeof true);
+console.log(typeof Symbol('pablo'));
+console.log(typeof alert);
+console.log(typeof null);
+console.log(typeof []);
