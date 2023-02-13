@@ -34,4 +34,4 @@ function letterReplace(string, replaced){
    
 console.log(letterReplace('Hello world', ['l', 'd']))
 
-//Удалить буквы из строки
+//Удалить буквы из строкиs

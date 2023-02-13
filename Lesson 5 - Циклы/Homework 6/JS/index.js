@@ -12,6 +12,7 @@ console.log(resultA)
 
 let resultB = '';
 let i2 = 0;
+let dollar;
 
 do {
   i2 += 10;
@@ -25,6 +26,7 @@ console.log(resultB)
 
 let resultC = '';
 let i3 = 1;
+let square;
 
 do {
   i3++;
@@ -45,7 +47,7 @@ function isPrime(n) {
 
   for (let i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
-      return 'Не просте число';
+      return 'Cкладене число';
     }
   }
   
@@ -58,9 +60,9 @@ console.log(isPrime(primeNum))
 
 let number = prompt('Введіть число')
 
-while (number % 3 == 0) {
+while (number % 3 === 0) {
   number /= 3;
 }
-console.log((number == 1)? "Число можна отримати" : "Число не можна отримати");
+console.log((number === 1)? "Число можна отримати" : "Число не можна отримати");
 
 // Получить число путём возведения 3 в степень 
