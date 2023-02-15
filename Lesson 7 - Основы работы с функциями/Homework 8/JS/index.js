@@ -1,13 +1,13 @@
-removeElement() 
+let array = ['Never','gonna','give','you','up'];
+let item = prompt('Назовите номер элемента, который хотите вырезать (1-' + array.length + ')')-1;
 
-function removeElement() {
-    let spliceNumber = prompt('Назовите номер элемента, который хотите вырезать (0-4)');
-    let array = ['Never','gonna','give','you','up'];
-    array.splice(spliceNumber, 1);
-    console.log(array);
+function remove(array, item){
+    array.splice(item, 1);
 }
+remove(array, item);
+console.log(array); 
 
-//Удалите элемент массива
+// //Удалите элемент массива
 
 function average() {
     let array = ['Never', 15, 'gonna', 3,'let', 12,'you', 5,'down'];
@@ -19,13 +19,13 @@ function average() {
             summ += array[i];
         }
     }
-    return conclusion = summ / count;
+    return summ / count;
 }
 
 let result = average();
 console.log(result)
 
-//Среднее арифметическое только числовых значений массива
+// //Среднее арифметическое только числовых значений массива
 
 function letterReplace(string, replaced){
     let letters = replaced.join('');
@@ -34,4 +34,4 @@ function letterReplace(string, replaced){
    
 console.log(letterReplace('Hello world', ['l', 'd']))
 
-//Удалить буквы из строкиs
+// //Удалить буквы из строкиs
