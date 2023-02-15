@@ -1,5 +1,5 @@
 let array = ['Never','gonna','give','you','up'];
-let item = prompt('Назовите номер элемента, который хотите вырезать (1-' + array.length + ')')-1;
+let item = prompt(`Назовите номер элемента, который хотите вырезать (1 - ${array.length} )`)-1;
 
 function remove(array, item){
     array.splice(item, 1);
