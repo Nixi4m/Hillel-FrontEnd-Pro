@@ -10,3 +10,4 @@ function numDeg(num, deg){
 }
 
 alert(numDeg(num, deg))
+
