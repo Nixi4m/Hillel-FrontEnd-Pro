@@ -1,22 +1,16 @@
-linkChange.addEventListener('click',() => {
-    location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+let getLink;
+
+document.querySelector('#linkChange').addEventListener('click',() => {
+     getLink = prompt('Введите свою ссылку')
 })
 
-linkChange2.addEventListener('click',() => {
-    location.href='https://www.youtube.com/watch?v=GtL1huin9EE'
-})
-
-let link = 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'
-
-function httpsCheck (link) {
-    let linkSplit = link.split(':')
+document.querySelector('#linkChange2').addEventListener('click',() => {
+    let linkSplit = getLink.split(':')
     if (linkSplit[0] == 'http'){
         linkSplit.shift()
         linkSplit.unshift('https:')
-        console.log(linkSplit.join(''))
+        location.href = (linkSplit.join(''))
     }else{
-        console.log(`И так сойдёт ${link}`)
+        location.href = getLink;
     }   
-}
-
-httpsCheck(link)
+})
