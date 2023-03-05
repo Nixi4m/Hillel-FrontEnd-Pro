@@ -16,7 +16,7 @@ function listGenerator(arr) {
         }
     }
     total += "</ul>";
-    pablo.innerHTML = total;
+    document.querySelector('#pablo').innerHTML = total;
 }
  
 listGenerator2(array);
@@ -39,5 +39,5 @@ function listGenerator2(arr) {
             mainUl.append(li)
         }
     }
-    pablo2.append(mainUl)
+    document.querySelector('#pablo2').append(mainUl)
 }
