@@ -5,12 +5,13 @@ document.querySelector('#linkChange').addEventListener('click',() => {
 })
 
 document.querySelector('#linkChange2').addEventListener('click',() => {
-    let linkSplit = getLink.split(':')
-    if (linkSplit[0] == 'http'){
-        linkSplit.shift()
-        linkSplit.unshift('https:')
-        location.href = (linkSplit.join(''))
+    if (getLink.startsWith( 'http' || 'https' ) === true){
+        location.href = getLink; 
     }else{
-        location.href = getLink;
+        if(getLink.startsWith( 'http' || 'https' ) === false){
+        let protocol = 'https:'
+        let protocolLink = protocol.concat(getLink)
+        location.href = protocolLink    
+        }
     }   
 })
