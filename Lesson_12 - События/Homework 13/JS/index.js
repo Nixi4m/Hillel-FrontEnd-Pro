@@ -5,13 +5,9 @@ document.querySelector('#linkChange').addEventListener('click',() => {
 })
 
 document.querySelector('#linkChange2').addEventListener('click',() => {
-    if (getLink.startsWith( 'http' || 'https' ) === true){
+    if (getLink.startsWith('http:') || getLink.startsWith('https:')){
         location.href = getLink; 
     }else{
-        if(getLink.startsWith( 'http' || 'https' ) === false){
-        let protocol = 'https:'
-        let protocolLink = protocol.concat(getLink)
-        location.href = protocolLink    
-        }
+        location.href = `https://${getLink}`   
     }   
 })
