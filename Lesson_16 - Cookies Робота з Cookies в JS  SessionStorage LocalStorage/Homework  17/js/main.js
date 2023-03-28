@@ -29,41 +29,34 @@ function UserTable({ form, content, userInfo, addButton }) {
         localStorage.setItem('users', JSON.stringify(currentUsers))
     }
     this.loadUsers = function () {
-        content.innerHTML = '';
         const users = JSON.parse(localStorage.getItem('users'));
         if (users) {
-          users.forEach(user => this.userTemplate(user))
+            users.forEach(user => this.userTemplate(user))
         }
-      };
+    }
 
-    this.deleteUser = function (userId) {
-        const currentUsers = JSON.parse(localStorage.getItem('users')) || [];
-        const updatedUsers = currentUsers.filter((user) => user.id !== userId);
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
-        this.loadUsers();
-      };
-    
-      this.userTemplate = function (user) {
-        content.insertAdjacentHTML(
-          'beforeend',
-          `<tr>` +
+    this.removeItem = function(){
+        const currentItem = this.closest('.js--item');
+        const currentUsers = JSON.parse(localStorage.getItem('users'))
+        const currentUsersWithoutItem = currentUsers.filter(item => item.id !== +currentItem.dataset.id)
+        currentItem.remove()
+        localStorage.setItem('users', JSON.stringify(currentUsersWithoutItem))
+    }
+
+    this.userTemplate = function (user) {
+        const newItem = document.createElement('tr');
+        newItem.classList.add('js--item');
+        newItem.dataset.id = user.id;
+        newItem.insertAdjacentHTML('beforeend', (
             `<td>${user.id}</td>` +
             `<td>${user.name}</td>` +
             `<td>${user.phone}</td>` +
             `<td>${user.age}</td>` +
-            `<td><button class="btn">View</button><button class="btn js--btn__edit">Edit</button><button class="btn js--btn__delete" data-user-id="${user.id}">Delete</button></td>` +
-            `</tr>`
-        );
-    
-        const deleteButtons = content.querySelectorAll('.js--btn__delete');
-        deleteButtons.forEach((button) => {
-          button.addEventListener('click', (event) => {
-            const userId = parseInt(event.target.getAttribute('data-user-id'));
-            this.deleteUser(userId);
-            event.target.closest('tr').remove();
-          });
-        });
-      };
+            `<td><button class="btn">View</button><button class="btn">Edit</button><button class="btn js--remove">Delete</button></td>` 
+        ))
+        newItem.querySelector('.js--remove').addEventListener('click', this.removeItem);
+        content.appendChild(newItem)
+    }
 }
 
 (new UserTable({
