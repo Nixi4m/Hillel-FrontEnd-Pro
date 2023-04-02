@@ -45,13 +45,13 @@ class Student{
         const averageAttendance = actualAttendance/this.attendance.length;
         
         if (averageMark >= 90 && averageAttendance >= 0.9){
-            console.log('Молодець!')
+            return 'Молодець!'
         }
         else if (averageMark >= 90 || averageAttendance >= 0.9){
-            console.log('Добре, але можна краще!')
+            return 'Добре, але можна краще!'
         }
         else{
-            console.log('Редиска!')
+           return 'Редиска!'
         }
     }
 }
