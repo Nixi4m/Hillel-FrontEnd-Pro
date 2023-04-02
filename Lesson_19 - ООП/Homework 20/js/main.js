@@ -51,7 +51,7 @@ class Student{
             return 'Добре, але можна краще!'
         }
         else{
-           return 'Редиска!'
+            return 'Редиска!'
         }
     }
 }
