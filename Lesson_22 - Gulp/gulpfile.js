@@ -29,14 +29,8 @@ gulp.task("less", function () {
     .pipe(gulp.dest("dist/css"));
 });
 
-gulp.task("watch", function () {
-  gulp.watch("src/js/**/*.js", gulp.series("scripts"));
-  gulp.watch("src/scss/**/*.scss", gulp.series("scss"));
-  gulp.watch("src/less/**/*.less", gulp.series("less"));
-});
-
 gulp.task("clean", function () {
   return del(["dist"]);
 });
 
-gulp.task("default", gulp.series("clean", gulp.parallel("scripts", "scss", "less"), "watch"));
+gulp.task("default", gulp.series("clean", gulp.parallel("scripts", "scss", "less")));
