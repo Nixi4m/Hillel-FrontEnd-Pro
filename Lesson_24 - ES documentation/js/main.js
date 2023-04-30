@@ -11,7 +11,6 @@ function getSwapi(params) {
         if (hasSlash) {
             const normalizeURL = formURL.trim();
             const response = await getSwapiData(swapiForm.action, normalizeURL);
-            console.log('response', response);
             this.showResponse(response, normalizeURL);
         } else {
             alert('ведите "/"');
