@@ -1,0 +1,31 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(124, 221, 111);
+}
+
+.navigation {
+  box-sizing: border-box;
+  min-width: 10%;
+  border: 2px solid black
+}
+
+.container {
+  padding: 10px;
+  border: 2px solid black
+}
+
+.navList {
+  list-style: none;
+  padding: 15px;
+}
+
+.navList :not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.header {
+  padding: 15px;
+  background-color: burlywood;
+  border: 2px solid black;
+}
