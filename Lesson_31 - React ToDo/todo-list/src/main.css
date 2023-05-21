@@ -7,10 +7,11 @@
 body {
     line-height: 1.2;
     font-size: 18px;
-    background-color: #66deb2;
+    background-color: #535ce0;
 }
 
 h1, h2 {
+    margin-top: 15px;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -28,6 +29,7 @@ h1, h2 {
     margin-bottom: 25px;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .form__input {
@@ -38,8 +40,9 @@ h1, h2 {
 }
 
 .form__btn {
-    background: #0be69d;
+    background: #514feb;
     border: none;
     cursor: pointer;
     width: 100px;
+    border-radius: 15px;
 }

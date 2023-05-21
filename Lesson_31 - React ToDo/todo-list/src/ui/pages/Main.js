@@ -46,6 +46,10 @@ class Main extends React.Component {
         })
     }
 
+    handleEdit = (id, newText) => {
+        console.log(`Редактирование задачи с ID ${id}. Новый текст: ${newText}`);
+    }
+
     render() {
         const {items} = this.state;
         return (
@@ -58,6 +62,7 @@ class Main extends React.Component {
                             key={item.id}
                             text={item.text}
                             id={item.id}
+                            handleEdit={this.handleEdit}
                             handleRemove={this.handleRemove}
                         />
                     ))}
