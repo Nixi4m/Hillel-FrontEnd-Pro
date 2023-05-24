@@ -1,75 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../../main.css';
 import Header from "../components/Header";
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
 
-class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: []
-        }
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleRemove = this.handleRemove.bind(this);
-    }
+const Main = () => {
+  const [items, setItems] = useState([]);
 
-    componentDidMount() {
-        this.setState({
-            items: JSON.parse(localStorage.getItem('items')) || []
-        })
-    }
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+    setItems(storedItems);
+  }, []);
 
-    handleAdd(event) {
-        event.preventDefault();
-        const input = event.target.getElementsByClassName('form__input')[0];
-        const text = input.value;
-        const newItems = [
-            ...this.state.items,
-            {id: Math.random(), text}
-        ];
-        this.setState({
-            items: newItems
-        })
-        localStorage.setItem('items', JSON.stringify(newItems));
-        input.value = ''
-    }
+  const handleAdd = (event) => {
+    event.preventDefault();
+    const input = event.target.getElementsByClassName('form__input')[0];
+    const text = input.value;
+    const newItems = [
+      ...items,
+      { id: Math.random(), text }
+    ];
+    setItems(newItems);
+    localStorage.setItem('items', JSON.stringify(newItems));
+    input.value = '';
+  }
 
-    handleRemove(id) {
-        this.setState((state) => {
-            const { items } = state;
-            const newItems = items.filter(item => item.id !== id);
-            localStorage.setItem('items', JSON.stringify(newItems));
-            return {
-                items: newItems,
-            }
-        })
-    }
+  const handleRemove = (id) => {
+    const newItems = items.filter(item => item.id !== id);
+    setItems(newItems);
+    localStorage.setItem('items', JSON.stringify(newItems));
+  }
 
-    handleEdit = (id, newText) => {
-        console.log(`Редактирование задачи с ID ${id}. Новый текст: ${newText}`);
-    }
+  const handleEdit = (id, newText) => {
+    const updatedItems = items.map(item => {
+      if (item.id === id) {
+        return { ...item, text: newText };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+    localStorage.setItem('items', JSON.stringify(updatedItems));
+  }
 
-    render() {
-        const {items} = this.state;
-        return (
-            <div className="container">
-                <Header/>
-                <TodoForm handleAdd={this.handleAdd}/>
-                <div>
-                    {items.map((item) => (
-                        <TodoItem
-                            key={item.id}
-                            text={item.text}
-                            id={item.id}
-                            handleEdit={this.handleEdit}
-                            handleRemove={this.handleRemove}
-                        />
-                    ))}
-                </div>
-            </div>
-        );
-    }
+  return (
+    <div className="container">
+      <Header />
+      <TodoForm handleAdd={handleAdd} />
+      <div>
+        {items.map((item) => (
+          <TodoItem
+            key={item.id}
+            text={item.text}
+            id={item.id}
+            handleEdit={handleEdit}
+            handleRemove={handleRemove}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Main;
