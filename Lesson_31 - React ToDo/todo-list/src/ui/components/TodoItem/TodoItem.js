@@ -1,67 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../form/Button";
 import "./style.css";
 
-export default class TodoItem extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isEditing: false,
-            editText: props.text
-        };
-    }
+const TodoItem = ({ text, handleRemove, id, handleEdit }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editText, setEditText] = useState(text);
 
-    handleEditClick = () => {
-        this.setState({ isEditing: true });
-    }
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
 
-    handleInputChange = (event) => {
-        this.setState({ editText: event.target.value });
-    }
+  const handleInputChange = (event) => {
+    setEditText(event.target.value);
+  };
 
-    handleSaveClick = () => {
-        const { editText } = this.state;
-        const { id, handleEdit } = this.props;
-        handleEdit(id, editText);
-        this.setState({ isEditing: false });
-    }
+  const handleSaveClick = () => {
+    handleEdit(id, editText);
+    setIsEditing(false);
+  };
 
-    render() {
-        const { isEditing, editText } = this.state;
-        const { handleRemove, id } = this.props;
+  if (isEditing) {
+    return (
+      <div className="todo-item">
+        <input
+          type="text"
+          value={editText}
+          onChange={handleInputChange}
+          className="todo-item__edit-input"
+        />
+        <Button
+          text="Save"
+          onClick={handleSaveClick}
+          customClass="todo-item__save"
+        />
+      </div>
+    );
+  }
 
-        if (isEditing) {
-            return (
-                <div className="todo-item">
-                    <input
-                        type="text"
-                        value={editText}
-                        onChange={this.handleInputChange}
-                        className="todo-item__edit-input"
-                    />
-                    <Button
-                        text="Save"
-                        onClick={this.handleSaveClick}
-                        customClass="todo-item__save"
-                    />
-                </div>
-            );
-        }
+  return (
+    <div className="todo-item">
+      <div className="todo-item__description">{editText}</div>
+      <Button
+        text="Edit"
+        onClick={handleEditClick}
+        customClass="todo-item__edit"
+      />
+      <Button
+        text="Delete"
+        onClick={() => handleRemove(id)}
+        customClass="todo-item__delete"
+      />
+    </div>
+  );
+};
 
-        return (
-            <div className="todo-item">
-                <div className="todo-item__description">{editText}</div>
-                <Button
-                    text="Edit"
-                    onClick={this.handleEditClick}
-                    customClass="todo-item__edit"
-                />
-                <Button
-                    text="Delete"
-                    onClick={() => handleRemove(id)}
-                    customClass="todo-item__delete"
-                />
-            </div>
-        );
-    }
-}
+export default TodoItem;

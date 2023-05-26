@@ -3,19 +3,19 @@ import '../../main.css';
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
 
-class TodoForm extends React.Component {
-    render() {
-        const { handleAdd } = this.props;
-        return (
-            <form
-                className="form"
-                onSubmit={handleAdd}
-            >
-                <Input />
-                <Button text="Send" />
-            </form>
-        );
-    }
-}
+const TodoForm = ({ handleAdd }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd(event);
+  };
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <Input />
+      <Button text="Send" />
+    </form>
+  );
+};
 
 export default TodoForm;
+
