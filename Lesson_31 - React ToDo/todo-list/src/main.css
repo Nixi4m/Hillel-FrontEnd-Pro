@@ -46,3 +46,29 @@ h1, h2 {
     width: 100px;
     border-radius: 15px;
 }
+
+.nav {
+    display: flex;
+}
+
+.nav__item {
+    background-color: orange;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.nav__item a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav__item:not(:last-child) {
+    margin-right: 10px;
+}
+
+.container {
+    height: 100vh;
+}

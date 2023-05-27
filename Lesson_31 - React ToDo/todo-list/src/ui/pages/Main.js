@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import '../../main.css';
-import Header from "../components/Header";
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
 
@@ -44,7 +43,6 @@ const Main = () => {
 
   return (
     <div className="container">
-      <Header />
       <TodoForm handleAdd={handleAdd} />
       <div>
         {items.map((item) => (
