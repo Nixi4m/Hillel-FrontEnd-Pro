@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import Button from "../form/Button";
 import "./style.css";
 
-const TodoItem = ({ text, handleRemove, id, handleEdit }) => {
+const TodoItem = ({ id, text, onEdit, onRemove }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editText, setEditText] = useState(text);
+  const [editedText, setEditedText] = useState(text);
 
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
   const handleInputChange = (event) => {
-    setEditText(event.target.value);
+    setEditedText(event.target.value);
   };
 
   const handleSaveClick = () => {
-    handleEdit(id, editText);
+    onEdit(id, editedText);
     setIsEditing(false);
   };
 
@@ -24,7 +24,7 @@ const TodoItem = ({ text, handleRemove, id, handleEdit }) => {
       <div className="todo-item">
         <input
           type="text"
-          value={editText}
+          value={editedText} 
           onChange={handleInputChange}
           className="todo-item__edit-input"
         />
@@ -39,7 +39,7 @@ const TodoItem = ({ text, handleRemove, id, handleEdit }) => {
 
   return (
     <div className="todo-item">
-      <div className="todo-item__description">{editText}</div>
+      <div className="todo-item__description">{editedText}</div>
       <Button
         text="Edit"
         onClick={handleEditClick}
@@ -47,7 +47,7 @@ const TodoItem = ({ text, handleRemove, id, handleEdit }) => {
       />
       <Button
         text="Delete"
-        onClick={() => handleRemove(id)}
+        onClick={() => onRemove(id)}
         customClass="todo-item__delete"
       />
     </div>
