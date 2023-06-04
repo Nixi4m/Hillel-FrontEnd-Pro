@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import '../../main.css';
 import TodoItem from '../components/TodoItem/TodoItem';
-import TodoForm from '../containers/TodoForm';
+import { Form, Field } from 'react-final-form';
+import styles from '../containers/TodoForm.module.css';
+import Input from '../components/form/Input';
+import Button from '../components/form/Button';
 
 const Main = () => {
   const [items, setItems] = useState([]);
-  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem('items')) || [];
     setItems(storedItems);
   }, []);
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleAdd = () => {
+  const handleAdd = (values) => {
+    const { inputValue } = values;
     if (inputValue.trim() === '') {
       return;
     }
@@ -26,7 +25,6 @@ const Main = () => {
     ];
     setItems(newItems);
     localStorage.setItem('items', JSON.stringify(newItems));
-    setInputValue('');
   };
 
   const handleRemove = (id) => {
@@ -48,11 +46,28 @@ const Main = () => {
 
   return (
     <div className="container">
-      <TodoForm
-        inputValue={inputValue}
-        onInputChange={handleInputChange}
-        onAdd={handleAdd}
-      />
+      <Form onSubmit={handleAdd}>
+        {({ handleSubmit }) => (
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <Field name="inputValue">
+              {({ input, meta }) => (
+                <div className={styles.input_box}>
+                  <Input
+                    type="text"
+                    {...input}
+                    placeholder="Enter a new todo"
+                    className={styles.input}
+                  />
+                  {meta.error && meta.touched && (
+                    <span className={styles.error}>{meta.error}</span>
+                  )}
+                </div>
+              )}
+            </Field>
+            <Button type="submit" text="Add" customClass={styles.addButton} />
+          </form>
+        )}
+      </Form>
       <div>
         {items.map((item) => (
           <TodoItem

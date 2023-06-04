@@ -1,24 +1,47 @@
 import React from "react";
-import '../../main.css';
+import styles from "./TodoForm.module.css";
+import { Form, Field } from "react-final-form";
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
 
-const TodoForm = ({ inputValue, onInputChange, onAdd }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onAdd();
+const TodoForm = ({ onAdd }) => {
+  const handleAdd = (values) => {
+    const { inputValue } = values;
+    onAdd(inputValue);
+  };
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.inputValue || values.inputValue.trim().length < 5) {
+      errors.inputValue = "Minimum length is 5 characters";
+    }
+    return errors;
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={inputValue}
-        onChange={onInputChange}
-        placeholder="Enter a new todo"
-      />
-      <Button type="submit" text="Add" customClass="todo-form__add" />
-    </form>
+      <Form onSubmit={handleAdd} validate={validate}>
+      {({ handleSubmit }) => (
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <Field name="inputValue">
+          {({ input, meta }) => (
+            <div className={styles.input_box}>
+              <Input
+                type="text"
+                {...input}
+                placeholder="Enter a new todo"
+                className={styles.input}
+              />
+              {meta.error && meta.touched && (
+                <span className={styles.error}>{meta.error}</span>
+              )}
+            </div>
+          )}
+        </Field>
+        <Button type="submit" text="Add" customClass={styles.addButton} />
+      </form>
+    )}
+  </Form>
+
   );
 };
 
