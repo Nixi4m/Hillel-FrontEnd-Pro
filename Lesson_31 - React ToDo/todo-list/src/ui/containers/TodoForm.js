@@ -19,29 +19,28 @@ const TodoForm = ({ onAdd }) => {
   };
 
   return (
-      <Form onSubmit={handleAdd} validate={validate}>
+    <Form onSubmit={handleAdd} validate={validate}>
       {({ handleSubmit }) => (
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <Field name="inputValue">
-          {({ input, meta }) => (
-            <div className={styles.input_box}>
-              <Input
-                type="text"
-                {...input}
-                placeholder="Enter a new todo"
-                className={styles.input}
-              />
-              {meta.error && meta.touched && (
-                <span className={styles.error}>{meta.error}</span>
-              )}
-            </div>
-          )}
-        </Field>
-        <Button type="submit" text="Add" customClass={styles.addButton} />
-      </form>
-    )}
-  </Form>
-
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <Field name="inputValue" validate={validate}>
+            {({ input, meta }) => (
+              <div className={styles.input_box}>
+                <Input
+                  type="text"
+                  {...input}
+                  placeholder="Enter a new todo"
+                  className={styles.input}
+                />
+                {meta.error && meta.touched && (
+                  <span className={styles.error}>{meta.error}</span>
+                )}
+              </div>
+            )}
+          </Field>
+          <Button type="submit" text="Add" customClass={styles.addButton} />
+        </form>
+      )}
+    </Form>
   );
 };
 

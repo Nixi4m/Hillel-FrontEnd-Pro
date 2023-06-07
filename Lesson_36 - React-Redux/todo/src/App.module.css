@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(153, 94, 207);
+    height: 100vh;
+  }
+  
+.todoList {
+    margin-top: 20px;
+    background-color: purple;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+.todoItem {
+    background-color: purple;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+.form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .form input {
+    flex-grow: 2; 
+    padding: 10px; 
+    margin-right: 5px;
+  }
+  
+  .form button {
+    padding: 5px 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

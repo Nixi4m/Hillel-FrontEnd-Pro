@@ -1,0 +1,14 @@
+.todoItem {
+    background-color: purple;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  
