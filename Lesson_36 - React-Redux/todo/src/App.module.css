@@ -1,53 +1,53 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* src/App.module.css */
+
+.App {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.app {
-    text-align: center;
-    padding: 20px;
-    background-color: rgb(153, 94, 207);
-    height: 100vh;
-  }
-  
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.todoInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 400px;
+  margin-right: 1rem;
+}
+
+.addButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
 .todoList {
-    margin-top: 20px;
-    background-color: purple;
-    border: 1px solid black;
-    padding: 10px;
-  }
-  
+  list-style: none;
+  padding: 0;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
 .todoItem {
-    background-color: purple;
-    border: 1px solid black;
-    color: white;
-    padding: 5px;
-    margin-bottom: 5px;
-    text-align: left;
-  }
-  
-.form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .form input {
-    flex-grow: 2; 
-    padding: 10px; 
-    margin-right: 5px;
-  }
-  
-  .form button {
-    padding: 5px 10px;
-    background-color: purple;
-    color: white;
-    border: none;
-  }
-  
-  .footer {
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  border: 1px solid rgb(77, 75, 75);
+  border-radius: 25px;
+}
