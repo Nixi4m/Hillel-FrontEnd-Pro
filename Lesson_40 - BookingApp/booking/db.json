@@ -108,109 +108,109 @@
   ],
   "hotels": [
     {
-      "id": 22,
-      "value": 70,
-      "label": "Atlanta"
+    "id": 22,
+    "value": "4/5",
+    "label": "The St. Regis Atlanta"
     },
     {
-      "id": 23,
-      "value": 149,
-      "label": "Boston"
+    "id": 23,
+    "value": "5/5",
+    "label": "Four Seasons Hotel Boston"
     },
     {
-      "id": 24,
-      "value": 5034,
-      "label": "Boston"
+    "id": 24,
+    "value": "4/5",
+    "label": "The Ritz-Carlton, Boston"
     },
     {
-      "id": 25,
-      "value": 34501,
-      "label": "Celebration"
+    "id": 25,
+    "value": "5/5",
+    "label": "Meliá Orlando Celebration"
     },
     {
-      "id": 26,
-      "value": 40418,
-      "label": "Edgewood"
+    "id": 26,
+    "value": "3/5",
+    "label": "Edgewood Grand Hotel"
     },
     {
-      "id": 27,
-      "value": 39505,
-      "label": "Gotha"
+    "id": 27,
+    "value": "3/5",
+    "label": "Gotha Royale"
     },
     {
-      "id": 28,
-      "value": 21017,
-      "label": "Haines City"
+    "id": 28,
+    "value": "4/5",
+    "label": "Rodeway Inn & Suites"
     },
     {
-      "id": 29,
-      "value": 10,
-      "label": "Los Angeles"
+    "id": 29,
+    "value": "5/5",
+    "label": "The Ritz-Carlton, Los Angeles"
     },
     {
-      "id": 30,
-      "value": 72,
-      "label": "Miami"
+    "id": 30,
+    "value": "3/5",
+    "label": "Fontainebleau Miami Beach"
     },
     {
-      "id": 31,
-      "value": 18421,
-      "label": "Montverde"
+    "id": 31,
+    "value": "3/5",
+    "label": "Montverde Kinn"
     },
     {
-      "id": 32,
-      "value": 54,
-      "label": "New York"
+    "id": 32,
+    "value": "5/5",
+    "label": "The Plaza Hotel"
     },
     {
-      "id": 33,
-      "value": 23767,
-      "label": "Ocoee"
+    "id": 33,
+    "value": "3/5",
+    "label": "Ocoee Palace"
     },
     {
-      "id": 34,
-      "value": 32190,
-      "label": "Orlando area"
+    "id": 34,
+    "value": "5/5",
+    "label": "Grand Bohemian Hotel Orlando"
     },
     {
-      "id": 35,
-      "value": 11531,
-      "label": "Poinciana"
+    "id": 35,
+    "value": "3/5",
+    "label": "Poinciana Gold"
     },
     {
-      "id": 36,
-      "value": 10772,
-      "label": "Polk City"
+    "id": 36,
+    "value": "3/5",
+    "label": "Polk City Statement"
     },
     {
-      "id": 37,
-      "value": 17969,
-      "label": "San Francisco Bay"
+    "id": 37,
+    "value": "5/5",
+    "label": "The Ritz-Carlton, San Francisco"
     },
     {
-      "id": 38,
-      "value": 17365,
-      "label": "St. Cloud"
+    "id": 38,
+    "value": "3/5",
+    "label": "St. Cloud Apartment"
     },
     {
-      "id": 39,
-      "value": 24263,
-      "label": "Walt Disney World® Resort"
+    "id": 39,
+    "value": "5/5",
+    "label": "Disney's Grand Floridian Resort & Spa"
     },
     {
-      "id": 40,
-      "value": 277,
-      "label": "Washington"
+    "id": 40,
+    "value": "4/5",
+    "label": "The Watergate Hotel"
     },
     {
-      "id": 41,
-      "value": 49764,
-      "label": "Windermere"
+    "id": 41,
+    "value": "3/5",
+    "label": "Windermere Royale"
     },
     {
-      "id": 42,
-      "value": 22282,
-      "label": "Winter Garden"
+    "id": 42,
+    "value": "5/5",
+    "label": "The Grove Resort & Water Park"
     }
-  ]
+    ]
 }
