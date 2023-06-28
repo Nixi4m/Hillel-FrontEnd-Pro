@@ -1,4 +1,3 @@
-// Компонент Hotels
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -8,9 +7,9 @@ export default function Hotels() {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('./db.json');
-        const { hotels } = response.data;
-        setHotelList(hotels);
+        const response = await axios.get('http://localhost:3000/hotels');
+        const { data } = response;
+        setHotelList(data);
       } catch (error) {
         console.error('Error loading hotels:', error);
       }
@@ -18,14 +17,13 @@ export default function Hotels() {
 
     fetchHotels();
   }, []);
-
   return (
     <div>
       <h2>Hotels</h2>
       {/* Отображение списка отелей */}
       {hotelList.map((hotel) => (
         <div key={hotel.id}>
-          <h3>{hotel.name}</h3>
+          <h3>{hotel.label}</h3>
           {/* Остальная информация о каждом отеле */}
         </div>
       ))}

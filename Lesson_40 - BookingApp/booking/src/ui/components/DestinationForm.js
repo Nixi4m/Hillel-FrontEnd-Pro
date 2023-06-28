@@ -6,23 +6,20 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import TextField from './TextField';
 import Select from './Select';
-import { destinationsAsyncActions } from '../../engine/core/destinations/saga/asyncActions';
-import { selectors } from '../../engine/core/destinations/slice';
 import Button from './Button';
 import { hotelsAsyncActions } from '../../engine/core/hotels/saga/asyncActions';
 
 export default function DestinationForm() {
-  const destinationsItems = useSelector((state) => selectors.items(state));
-  const destinationsLoading = useSelector((state) => selectors.loading(state));
+  const destinationsItems = useSelector((state) => state.destinations.items);
+  const destinationsLoading = useSelector((state) => state.destinations.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        axios.defaults.baseURL = 'http://localhost:3000'; // Установка базового URL
-        const response = await axios.get('/db.json');
-        const { destinations } = response.data;
-        dispatch(destinationsAsyncActions.setItems(destinations));
+        const response = await axios.get('http://localhost:3000/destinations');
+        const destinations = response.data;
+        dispatch({ type: 'SET_DESTINATIONS', payload: destinations });
       } catch (error) {
         console.error('Error loading destinations:', error);
       }
