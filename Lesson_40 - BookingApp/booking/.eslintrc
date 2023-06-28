@@ -1,0 +1,21 @@
+{
+  "extends": ["airbnb"],
+  "globals": {
+    "window": false,
+    "document": false
+  },
+  "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "max-len": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [1,
+      { "extensions": [".js", ".jsx"] }
+    ],
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": ["state"]
+    }],
+    "react/jsx-one-expression-per-line": [0]
+  }
+}
