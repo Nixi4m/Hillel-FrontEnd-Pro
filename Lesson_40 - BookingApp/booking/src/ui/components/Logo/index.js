@@ -10,13 +10,13 @@ export default function Logo() {
     <Wrapper to={links.main}>
       <Box
         sx={{
-          borderRadius: '50%',
           backgroundColor: 'orange',
           height: '30px',
-          width: '30px',
+          width: '10px',
+          marginRight: '10px',
         }}
       />
-      LOGO
+      ECONOMIC BOOKING
     </Wrapper>
   );
 }

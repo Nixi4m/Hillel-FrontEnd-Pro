@@ -24,7 +24,7 @@ export default function Select(props) {
       >
         {options.map(
           (option) => (
-            <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+            <MenuItem key={option.value} value={option.value}>{option.label} </MenuItem>
           ),
         )}
       </SelectMUI>

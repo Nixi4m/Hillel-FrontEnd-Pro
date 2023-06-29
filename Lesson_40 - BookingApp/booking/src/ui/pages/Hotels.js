@@ -24,13 +24,22 @@ export default function Hotels() {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginBottom: '100px' }}>
       <h2>Hotels</h2>
       {/* Отображение списка отелей */}
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} justifyContent="center" sx={{ rowGap: '50px', columnGap: '50px' }}>
         {hotelList.map((hotel) => (
-          <Grid item xs={4} key={hotel.id}>
-            <Card sx={{ width: 200, border: '1px solid black' }}>
+          <Grid item key={hotel.id} xs={3} sx={{ display: 'flex', justifyContent: 'center', borderRadius: '15px' }}>
+            <Card
+              sx={{
+                width: '100%',
+                border: '1px solid black',
+                padding: 0,
+                '&:hover': {
+                  cursor: 'pointer',
+                },
+              }}
+            >
               <CardMedia
                 component="img"
                 height="150"

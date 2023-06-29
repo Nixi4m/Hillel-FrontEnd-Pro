@@ -32,9 +32,23 @@ export default function DestinationForm() {
     dispatch(hotelsAsyncActions.getHotelsAsync(values));
   };
 
+  const validate = (values) => {
+    const errors = {};
+    if (!values.destination) {
+      errors.destination = 'Required';
+    }
+    if (!values.adults) {
+      errors.adults = 'Required';
+    } else if (!/^\d+$/.test(values.adults)) {
+      errors.adults = 'Must be a number';
+    }
+    return errors;
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
+      validate={validate}
       render={({ handleSubmit }) => (
         <Box
           component="form"
@@ -45,18 +59,37 @@ export default function DestinationForm() {
             margin: '30px 0',
           }}
         >
-          <Grid container>
+          <Grid container spacing={2} alignItems="top">
             <Grid item xs={3}>
-              <Field
-                name="destination"
-                label="Destination"
-                component={Select}
-                disabled={destinationsLoading}
-                options={destinationsItems}
-              />
+              <Box sx={{ height: 72 }}>
+                <Field
+                  name="destination"
+                  label="Destination"
+                  component={Select}
+                  disabled={destinationsLoading}
+                  options={destinationsItems}
+                />
+              </Box>
+              <Box sx={{ height: 20 }}>
+                <Field
+                  name="destination"
+                  subscription={{ error: true, touched: true }}
+                  render={({ meta: { touched, error } }) => (
+                    <div>
+                      {touched && error && (
+                        <span style={{ color: 'red' }}>{error}</span>
+                      )}
+                    </div>
+                  )}
+                />
+              </Box>
             </Grid>
-            <Grid item xs={1}>
-              <Field name="adults" label="Adults" component={TextField} />
+            <Grid item xs={1} sx={{ paddingTop: '15px' }}>
+              <Field
+                name="adults"
+                label="Adults"
+                component={TextField}
+              />
             </Grid>
             <Grid item xs={1}>
               <Button type="submit">SEND</Button>
